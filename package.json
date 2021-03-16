@@ -1,0 +1,14 @@
+{
+  "name": "testcafe_workshop",
+  "version": "1.0.0",
+  "description": "TestCafe Workshop Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test-all-chrome": "testcafe chrome ./page_model/tests"
+  },
+  "author": "Hector Hurtado",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
