@@ -9,12 +9,14 @@ class CheckoutPage {
         this.errorMessage = Selector('h3[data-test="error"]')
     }
 
-    async fillUserInformation(firstName, lastName, postalCodeField) {
-        await t
-            .typeText(this.firstNameField, firstName)
-            .typeText(this.lastNameField, lastName)
-            .typeText(this.postalCodeField, postalCodeField)
-            .click(this.continueButton)
+    async fillUserInformation(firstName, lastName, postalCode) {
+        if(firstName != '')
+            await t.typeText(this.firstNameField, firstName)
+        if(lastName != '')
+            await t.typeText(this.lastNameField, lastName)
+        if(postalCode != '')
+            await t.typeText(this.postalCodeField, postalCode)
+        await t.click(this.continueButton)
     }
 }
 

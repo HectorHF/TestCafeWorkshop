@@ -1,18 +1,27 @@
 import LoginPage from '../pages/LoginPage'
 import ProductPage from '../pages/ProductPage'
 import { CREDENTIALS } from '../data/Constants'
+import { LOGIN_ERROR_MESSAGES } from '../data/Constants'
 
 fixture('Login Feature Testing')
     .page('https://www.saucedemo.com/')
 
-test('Login with a valid user', async t => {
-    await LoginPage.submitLoginForm(CREDENTIALS.VALID_USER.USERNAME, CREDENTIALS.VALID_USER.PASSWORD)
-    await t.expect(ProductPage.productLabel.exists).ok()
-    await t.expect(ProductPage.productLabel.innerText).eql('Products')
+CREDENTIALS.VALID_USERS.USERNAMES.forEach(username => {
+    test('Login with a valid user: ' + username, async t => {
+        await LoginPage.submitLoginForm(username, CREDENTIALS.VALID_USERS.PASSWORD)
+        await t.expect(ProductPage.productLabel.exists).ok()
+        await t.expect(ProductPage.productLabel.innerText).eql('Products')
+    })
 })
 
-test('Login with an invalid user', async t => {
-    await LoginPage.submitLoginForm(CREDENTIALS.INVALID_USER.USERNAME, CREDENTIALS.INVALID_USER.PASSWORD)
-    await t.expect(LoginPage.errorMessage.exists).ok()
-    await t.expect(LoginPage.errorMessage.innerText).eql('Epic sadface: Username and password do not match any user in this service')
+let i = 0
+CREDENTIALS.INVALID_USERS.USERNAMES.forEach(username => {
+    CREDENTIALS.INVALID_USERS.PASSWORDS.forEach(password => {
+        test('Login with an invalid user. Username: ' + username + ', password: ' + password, async t => {
+            await LoginPage.submitLoginForm(username, password)
+            await t.expect(LoginPage.errorMessage.exists).ok()
+            await t.expect(LoginPage.errorMessage.innerText).eql(LOGIN_ERROR_MESSAGES.ERROR_MESSAGES[i])
+            i++
+        })
+    })
 })

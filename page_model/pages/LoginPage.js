@@ -9,10 +9,11 @@ class LoginPage {
     }
 
     async submitLoginForm(username, password) {
-        await t
-            .typeText(this.usernameField, username)
-            .typeText(this.passwordField, password)
-            .click(this.loginButton)
+        if(username != '')
+            await t.typeText(this.usernameField, username)
+        if(password != '')
+            await t.typeText(this.passwordField, password)
+        await t.click(this.loginButton)
     }
 }
 

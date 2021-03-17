@@ -5,8 +5,10 @@ import { CREDENTIALS } from '../data/Constants'
 fixture('Logout Feature Testing')
     .page('https://www.saucedemo.com/')
 
-test('Logout from product´s page', async t => {
-    await LoginPage.submitLoginForm(CREDENTIALS.VALID_USER.USERNAME, CREDENTIALS.VALID_USER.PASSWORD)
-    await ProductPage.logout()
-    await t.expect(LoginPage.usernameField.exists).ok()
+CREDENTIALS.VALID_USERS.USERNAMES.forEach(username => {
+    test('Logout from product´s page. Username: ' + username, async t => {
+        await LoginPage.submitLoginForm(username, CREDENTIALS.VALID_USERS.PASSWORD)
+        await ProductPage.logout()
+        await t.expect(LoginPage.usernameField.exists).ok()
+    })
 })

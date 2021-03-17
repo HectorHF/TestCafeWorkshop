@@ -4,11 +4,13 @@
   "description": "TestCafe Workshop Assignment",
   "main": "index.js",
   "scripts": {
-    "test-all-chrome": "testcafe chrome ./page_model/tests"
+    "test-all-chrome": "testcafe chrome ./page_model/tests --reporter html:output/report.html",
+    "test-all-firefox": "testcafe firefox ./page_model/tests --reporter html:output/report.html"
   },
   "author": "Hector Hurtado",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "testcafe-reporter-html": "^1.4.6"
   }
 }
