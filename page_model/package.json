@@ -4,8 +4,8 @@
   "description": "TestCafe Workshop Assignment",
   "main": "index.js",
   "scripts": {
-    "test-all-chrome": "testcafe chrome ./page_model/tests --reporter html:output/report.html",
-    "test-all-firefox": "testcafe firefox ./page_model/tests --reporter html:output/report.html"
+    "test-all-chrome": "testcafe chrome ./tests --reporter html:output/report.html",
+    "test-all-firefox": "testcafe firefox ./tests --reporter html:output/report.html"
   },
   "author": "Hector Hurtado",
   "license": "ISC",
