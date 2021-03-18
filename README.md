@@ -4,7 +4,7 @@
 2. Once the repository is cloned, go to the page_model folder
 3. Install the dependencies
 
-<code>npm install -g testcafe</code>
+<code>npm install testcafe</code>
 
 <code>npm install dotenv</code>
 
