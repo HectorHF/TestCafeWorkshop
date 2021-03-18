@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test-all-chrome": "testcafe chrome ./tests --reporter html:output/report.html",
-    "test-all-firefox": "testcafe firefox ./tests --reporter html:output/report.html"
+    "test-all-firefox": "testcafe firefox ./tests --reporter html:output/report.html",
+    "test-all-edge": "testcafe edge ./tests --reporter html:output/report.html",
+    "test-all-ie": "testcafe ie ./tests --reporter html:output/report.html",
+    "test-all-browsers": "testcafe all ./tests --reporter html:output/report.html"
   },
   "author": "Hector Hurtado",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "testcafe": "^1.12.0",
     "testcafe-reporter-html": "^1.4.6"
   }
 }
